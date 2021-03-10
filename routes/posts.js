@@ -1,3 +1,4 @@
+//Imports
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/post");
@@ -36,7 +37,7 @@ router.get("/:postId", async (req, res) => {
   }
 });
 
-//Delete Post
+//DELETE A POST
 router.delete("/:postId", async (req, res) => {
   try {
     const removePost = await Post.remove({ _id: req.params.postId });
@@ -46,7 +47,7 @@ router.delete("/:postId", async (req, res) => {
   }
 });
 
-//Update a post
+//UPDATE A POST
 router.patch("/:postId", async (req, res) => {
   try {
     const updatedPost = await Post.updateOne(
@@ -59,4 +60,5 @@ router.patch("/:postId", async (req, res) => {
   }
 });
 
+//Exports
 module.exports = router;
